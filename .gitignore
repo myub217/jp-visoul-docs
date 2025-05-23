@@ -7,18 +7,65 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+out/
+build/
+
+# Environment files
+.env
+.env.*.local
 *.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# System files
 .DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+!.vscode/extensions.json
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Yarn 2+ (Berry)
+.pnp.*
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Optional npm cache directory
+.npm/
+
+# TypeScript
+*.tsbuildinfo
+
+# Vite
+.vite/
+
+# Testing
+coverage/
+*.lcov
+
+# Storybook
+.out/
+storybook-static/
+
+# Next.js / SvelteKit / Nuxt (ถ้าใช้)
+.next/
+.nuxt/
+.svelte-kit/
+
+# Misc
+*.tgz
+*.bak
+*.tmp

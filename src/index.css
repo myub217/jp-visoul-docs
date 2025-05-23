@@ -1,68 +1,38 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+// index.css @tailwind base; @tailwind components; @tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+:root { --primary: #646cff; --primary-hover: #535bf2; --dark-bg: #242424; --light-bg: #ffffff; --text-light: rgba(255, 255, 255, 0.87); --text-dark: #213547; }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+body { @apply m-0 min-h-screen font-sans antialiased text-base bg-white text-gray-900 dark:bg-neutral-900 dark:text-white; }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+// main.tsx import { StrictMode } from 'react'; import { createRoot } from 'react-dom/client'; import App from './App'; import './index.css';
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+createRoot(document.getElementById('root')!).render( <StrictMode> <App /> </StrictMode> );
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+// App.tsx import { useState, useEffect } from 'react'; import Hero from './components/Hero'; import Services from './components/Services'; import Footer from './components/Footer'; import { ThemeProvider } from './context/ThemeContext'; import './App.css';
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+export default function App() { return ( <ThemeProvider> <div className="min-h-screen bg-white text-gray-900 dark:bg-neutral-900 dark:text-white"> <Hero /> <Services /> <Footer /> </div> </ThemeProvider> ); }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+// context/ThemeContext.tsx import { createContext, useContext, useEffect, useState } from 'react';
+
+const ThemeContext = createContext({ toggleTheme: () => {} });
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) { const [theme, setTheme] = useState('light');
+
+useEffect(() => { document.documentElement.classList.toggle('dark', theme === 'dark'); }, [theme]);
+
+const toggleTheme = () => setTheme(t => (t === 'light' ? 'dark' : 'light'));
+
+return ( <ThemeContext.Provider value={{ toggleTheme }}> {children} </ThemeContext.Provider> ); }
+
+export const useTheme = () => useContext(ThemeContext);
+
+// components/Hero.tsx export default function Hero() { return ( <section className="p-8 text-center"> <h1 className="text-4xl font-bold">JP Visual & Docs</h1> <p className="text-lg mt-2">ทำธุรกิจสีเทาให้เป็นมาตรฐานมืออาชีพ</p> </section> ); }
+
+// components/Services.tsx export default function Services() { return ( <section className="p-8"> <h2 className="text-2xl font-semibold mb-4">บริการของเรา</h2> <ul className="space-y-2"> <li>วางแผนยื่นกู้สินเชื่อ</li> <li>ดูแลเอกสารยื่นวีซ่า</li> <li>SLIBBANK – สลิปโอนเงิน/รับเงิน</li> <li>บริการเอกสาร: แก้ไข / สร้างใหม่</li> <li>ผลิตชิ้นงานจริง</li> <li>ออกแบบโลโก้ / แบนเนอร์</li> </ul> </section> ); }
+
+// components/Footer.tsx import { useTheme } from '../context/ThemeContext';
+
+export default function Footer() { const { toggleTheme } = useTheme();
+
+return ( <footer className="p-4 text-center border-t border-gray-300 dark:border-gray-700"> <p>© 2025 JP Visual & Docs</p> <button onClick={toggleTheme} className="mt-2 text-sm underline">Toggle Theme</button> </footer> ); }
+

@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "headline": "ทำธุรกิจสีเทาให้ดูมืออาชีพ",
+    "subheadline": "JP Visual & Docs ให้บริการเอกสารครบวงจร ออกแบบ ปรับภาพลักษณ์ โปรไฟล์ ดูแลการยื่นขอสินเชื่อและวีซ่า",
+    "ctaText": "ดูบริการทั้งหมด"
+  },
+  "services": [
+    {
+      "id": 1,
+      "title": "วางแผนยื่นกู้สินเชื่อแบบตรงจุด",
+      "description": "วิเคราะห์โปรไฟล์ลูกค้าให้ตรงกับธนาคาร พร้อมจัดชุดเอกสาร",
+      "price": "เริ่มต้น 4,000 – 300,000 บาท",
+      "tags": ["เจ้าของธุรกิจ", "ฟรีแลนซ์", "โปรไฟล์ไม่สมบูรณ์"]
+    },
+    {
+      "id": 2,
+      "title": "ดูแลเอกสารยื่นวีซ่าทุกประเภท",
+      "description": "ตรวจสอบและจัดชุดเอกสารยื่นวีซ่า พร้อมรับงานด่วน",
+      "price": "เริ่มต้น 4,000 บาท",
+      "tags": ["ท่องเที่ยว", "ธุรกิจ", "คู่สมรส"]
+    },
+    {
+      "id": 3,
+      "title": "SLIBBANK – สลิปโอนเงิน/รับเงิน",
+      "description": "สลิปที่ตรวจสอบได้จริง ใช้ในโปรไฟล์หรือเอกสาร",
+      "price": "100 บาท/ใบ | 10 ใบ 500 บาท",
+      "tags": ["สร้างภาพลักษณ์การเงิน"]
+    }
+  ],
+  "portfolio": [
+    {
+      "title": "ตัวอย่างเอกสารยื่นกู้",
+      "image": "/images/loan-doc-sample.png",
+      "description": "แพ็กเกจเอกสารที่ดูน่าเชื่อถือ สร้างความมั่นใจให้ธนาคาร"
+    },
+    {
+      "title": "ตัวอย่างวีซ่า",
+      "image": "/images/visa-doc-sample.png",
+      "description": "จัดชุดเอกสารยื่นวีซ่าผ่านรอบพิเศษ"
+    }
+  ],
+  "contact": {
+    "line": "@jpvisualdocs",
+    "email": "myub25217@gmail.com",
+    "phone": "098-xxx-xxxx"
+  },
+  "footer": {
+    "text": "© 2025 JP Visual & Docs. All rights reserved.",
+    "socials": [
+      {
+        "name": "Facebook",
+        "link": "https://facebook.com/jpvisualdocs"
+      },
+      {
+        "name": "LINE",
+        "link": "https://line.me/R/ti/p/@jpvisualdocs"
+      },
+      {
+        "name": "Email",
+        "link": "mailto:myub25217@gmail.com"
+      }
+    ]
+  }
+}

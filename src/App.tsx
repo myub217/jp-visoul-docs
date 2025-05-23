@@ -1,19 +1,17 @@
-import { useEffect, useState } from 'react'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import Footer from './components/Footer'
-import siteData from './data/siteData.json'
+type HeroProps = {
+    data: {
+        title: string;
+        subtitle: string;
+        description: string;
+    };
+};
 
-function App() {
-  const [data, setData] = useState(siteData)
-
-  return (
-    <div className="bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white">
-      <Hero data={data.hero} />
-      <Services data={data.services} />
-      <Footer data={data.footer} />
-    </div>
-  )
+export default function Hero({ data }: HeroProps) {
+    return (
+        <section className="text-center p-8">
+            <h1 className="text-4xl font-bold">{data.title}</h1>
+            <h2 className="text-2xl text-gray-500 mt-2">{data.subtitle}</h2>
+            <p className="mt-4">{data.description}</p>
+        </section>
+    );
 }
-
-export default App

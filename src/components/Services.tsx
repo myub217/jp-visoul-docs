@@ -1,31 +1,49 @@
-type Service = {
-  id: number
-  title: string
-  description: string
-  price: string
-  tags: string[]
-}
+type ContactProps = {
+    data: {
+        title: string;
+        description: string;
+        line: string;
+        email: string;
+        phone: string;
+        formAction: string;
+    };
+};
 
-export default function Services({ data }: { data: Service[] }) {
-  return (
-    <section className="p-8">
-      <h2 className="text-2xl font-bold mb-4">บริการของเรา</h2>
-      <div className="grid gap-6 md:grid-cols-2">
-        {data.map(service => (
-          <div key={service.id} className="p-4 border rounded-lg shadow bg-white dark:bg-zinc-800">
-            <h3 className="text-xl font-semibold">{service.title}</h3>
-            <p className="text-sm text-zinc-600 dark:text-zinc-300">{service.description}</p>
-            <p className="mt-2 text-sm font-medium text-blue-600">{service.price}</p>
-            <div className="flex flex-wrap mt-2 gap-1">
-              {service.tags.map(tag => (
-                <span key={tag} className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">
-                  {tag}
-                </span>
-              ))}
+export default function Contact({ data }: ContactProps) {
+    return (
+        <section className="p-8">
+            <h2 className="text-3xl font-bold mb-2">{data.title}</h2>
+            <p className="mb-4">{data.description}</p>
+            <form action={data.formAction} method="POST" className="space-y-4">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="ชื่อของคุณ"
+                    className="w-full p-2 border"
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="อีเมล"
+                    className="w-full p-2 border"
+                />
+                <textarea
+                    name="message"
+                    placeholder="ข้อความ"
+                    className="w-full p-2 border"
+                ></textarea>
+                <button
+                    type="submit"
+                    className="bg-blue-600 text-white px-4 py-2 rounded"
+                >
+                    ส่งข้อความ
+                </button>
+            </form>
+            <div className="mt-4 text-sm">
+                <p>Line: {data.line}</p>
+                <p>Email: {data.email}</p>
+                <p>Phone: {data.phone}</p>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  )
+        </section>
+    );
 }

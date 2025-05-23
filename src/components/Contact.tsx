@@ -1,31 +1,49 @@
-// src/components/Contact.tsx
-import React from "react";
-import siteData from "../../public/SetiData.json"; // ตรวจเส้นทางไฟล์ให้ตรง
-
-const Contact = () => {
-  const { contact } = siteData;
-
-  return (
-    <section id="contact" className="bg-white dark:bg-gray-900 py-12 px-4">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">ติดต่อเรา</h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-8">
-          สอบถามข้อมูล บริการ หรือขอใบเสนอราคา
-        </p>
-        <div className="space-y-4">
-          <p className="text-lg text-gray-700 dark:text-gray-200">
-            Line: <span className="font-semibold">{contact.line}</span>
-          </p>
-          <p className="text-lg text-gray-700 dark:text-gray-200">
-            Email: <a href={`mailto:${contact.email}`} className="text-accent underline">{contact.email}</a>
-          </p>
-          <p className="text-lg text-gray-700 dark:text-gray-200">
-            โทร: <a href={`tel:${contact.phone}`} className="text-accent underline">{contact.phone}</a>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
+type ContactProps = {
+    data: {
+        title: string;
+        description: string;
+        line: string;
+        email: string;
+        phone: string;
+        formAction: string;
+    };
 };
 
-export default Contact;
+export default function Contact({ data }: ContactProps) {
+    return (
+        <section className="p-8">
+            <h2 className="text-3xl font-bold mb-2">{data.title}</h2>
+            <p className="mb-4">{data.description}</p>
+            <form action={data.formAction} method="POST" className="space-y-4">
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="ชื่อของคุณ"
+                    className="w-full p-2 border"
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="อีเมล"
+                    className="w-full p-2 border"
+                />
+                <textarea
+                    name="message"
+                    placeholder="ข้อความ"
+                    className="w-full p-2 border"
+                ></textarea>
+                <button
+                    type="submit"
+                    className="bg-blue-600 text-white px-4 py-2 rounded"
+                >
+                    ส่งข้อความ
+                </button>
+            </form>
+            <div className="mt-4 text-sm">
+                <p>Line: {data.line}</p>
+                <p>Email: {data.email}</p>
+                <p>Phone: {data.phone}</p>
+            </div>
+        </section>
+    );
+}

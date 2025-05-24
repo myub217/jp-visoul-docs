@@ -1,0 +1,19 @@
+{
+  "name": "Reload File",
+  "version": "1.0.0",
+  "author": "JP VISOUL DOSC",
+  "description": "ปลั๊กอินสำหรับรีโหลดไฟล์ที่เปิดอยู่ใน Acode",
+  "main": "main.js",
+  "icon": "icon.png",
+  "permissions": [],
+  "keywords": ["reload", "file", "acode", "plugin", "refresh"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myub217/acode-reload-file-plugin"
+  },
+  "homepage": "https://github.com/myub217/acode-reload-file-plugin",
+  "bugs": {
+    "url": "https://github.com/myub217/acode-reload-file-plugin/issues"
+  },
+  "license": "MIT"
+}

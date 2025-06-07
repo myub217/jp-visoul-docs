@@ -1,68 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* Base Variables */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --color-primary: #4A90E2;
+  --color-secondary: #7BAAF7;
+  --color-accent: #FFCC80;
+  --color-bg: #F5F7FA;
+  --color-text: #2E3A59;
+  --color-light: #ffffff;
+  --color-muted: #B0BEC5;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+/* Text */
+p {
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+/* Form Elements */
+input, textarea, select {
   font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--color-muted);
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-secondary);
+}
+
+/* Layout Utility */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  padding: 4rem 1rem;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+
+.bg-primary { background-color: var(--color-primary); color: white; }
+.bg-accent { background-color: var(--color-accent); color: black; }
+
+.rounded { border-radius: 0.5rem; }
+.shadow { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 1rem;
   }
-  a:hover {
-    color: #747bff;
+
+  .container {
+    padding: 0 0.75rem;
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+/* 🌙 Dark Mode */
+.dark {
+  --color-bg: #1C1F26;
+  --color-text: #E0E6ED;
+  --color-light: #2A2D34;
+  --color-muted: #5C6B73;
+}
+
+.dark body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.dark a {
+  color: var(--color-accent);
+}
+
+.dark button {
+  background-color: var(--color-secondary);
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: var(--color-light);
+  color: var(--color-text);
+  border-color: var(--color-muted);
 }
